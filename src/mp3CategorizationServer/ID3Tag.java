@@ -2,9 +2,14 @@ package mp3CategorizationServer;
 
 import java.io.File;
 import java.io.RandomAccessFile;
+import java.io.Serializable;
 
-public class ID3Tag {
+public class ID3Tag implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5233207519609692173L;
 	private String title;
 	private String artist;
 	private String album;

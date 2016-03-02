@@ -4,15 +4,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MapTransformer {
 	
-	public static HashMap<String, List<File>> transformMap(HashMap<File, ID3Tag> mp3s, String chosenTag){
+	public static Map<String, List<File>> transformMap(Map<File, ID3Tag> mp3s, String chosenTag){
 		
-		HashMap<String, List<File>> dirsAndFiles = new HashMap<String, List<File>>();
+		Map<String, List<File>> dirsAndFiles = new HashMap<String, List<File>>();
 		List<String> collectedTags = new ArrayList<String>();
 		
-		for (HashMap.Entry<File, ID3Tag> entry : mp3s.entrySet())
+		for (Map.Entry<File, ID3Tag> entry : mp3s.entrySet())
 		{
 			if (chosenTag.equals("title")) {
 				collectedTags.add(entry.getValue().getTitle());

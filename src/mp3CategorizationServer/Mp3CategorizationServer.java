@@ -9,6 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Mp3CategorizationServer {
 	
@@ -26,11 +27,11 @@ public class Mp3CategorizationServer {
 			ObjectOutputStream oos = new ObjectOutputStream(os);
 			System.out.println("streams established");
 			
-			HashMap<File, ID3Tag> mp3s = (HashMap<File, ID3Tag>) ois.readObject();
+			Map<File, ID3Tag> mp3s = (HashMap<File, ID3Tag>) ois.readObject();
 			System.out.println("file objects received");
 			String chosenTag = (String) ois.readObject();
 			System.out.println("chosen tag recieved");
-			HashMap<String, List<File>> dirsAndFiles = MapTransformer.transformMap(mp3s, chosenTag);
+			Map<String, List<File>> dirsAndFiles = MapTransformer.transformMap(mp3s, chosenTag);
 			oos.writeObject(dirsAndFiles);
 			System.out.println("directory and files layout created and sent");
 			

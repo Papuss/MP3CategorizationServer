@@ -10,10 +10,10 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.List;
 
-public class Server {
+public class Mp3CategorizationServer {
 	
 	
-	public Server() {
+	public Mp3CategorizationServer() {
 		try {
 			ServerSocket ss = new ServerSocket(1003);
 			Socket socket = ss.accept();
@@ -49,6 +49,7 @@ public class Server {
 
 	public static void main(String[] args) {
 
+		new Mp3CategorizationServer();
 	}
 
 }

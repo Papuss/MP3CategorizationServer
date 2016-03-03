@@ -1,4 +1,4 @@
-package mp3CategorizationServer;
+package main;
 
 import java.util.HashMap;
 import java.util.Map;

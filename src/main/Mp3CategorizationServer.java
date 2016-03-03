@@ -1,4 +1,4 @@
-package mp3CategorizationServer;
+package main;
 
 import java.io.File;
 import java.io.InputStream;
@@ -10,9 +10,6 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import main.ID3Tag;
-import main.Properties;
 
 public class Mp3CategorizationServer {
 	

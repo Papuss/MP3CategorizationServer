@@ -1,10 +1,8 @@
 package mp3CategorizationServer;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import main.Properties;
 
 import main.ID3Tag;
 
@@ -40,7 +38,7 @@ public class MapTransformer {
 		}
 		
 		for (HashMap.Entry<File, ID3Tag> entry : mp3s.entrySet()){
-			if (chosenTag.equals("title")) {
+			if (chosenTag.equals("title")) { /*itt kell maguskodni*/
 				String tagDirName = entry.getValue().getTitle();
 				File fileToAdd = entry.getKey();
 				dirsAndFiles.get(tagDirName).add(fileToAdd);
@@ -68,19 +66,18 @@ public class MapTransformer {
 		}
 		
 		return dirsAndFiles;
-		/*
-		for (HashMap.Entry<File, ID3Tag> entry : mp3s.entrySet())
-		{
-		    if (chosenTag.equals("title")){
-		    	String property = entry.getValue().getTitle();
-		    	if (dirsAndFiles.containsKey(property)){
-		    		dirsAndFiles.get(property).add(entry.getKey());
-		    	} else {
-		    		dirsAndFiles.put(property, null);
-		    		dirsAndFiles.get(property).add(entry.getKey());
-		    	}
-		    }
-		}
-		*/
+
+//		for (HashMap.Entry<File, ID3Tag> entry : mp3s.entrySet())
+//		{
+//			String property = null;
+//		    if (chosenTag.equals("title")){
+//		    	property = entry.getValue().getTitle();
+//			}
+//			if (!dirsAndFiles.containsKey(property)){
+//				dirsAndFiles.put(property,new ArrayList<>());
+//			}
+//			dirsAndFiles.get(property).add(entry.getKey());
+//		}
+//
 	}
 }

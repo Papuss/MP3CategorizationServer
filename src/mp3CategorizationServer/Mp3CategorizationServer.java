@@ -16,7 +16,7 @@ import main.Properties;
 
 public class Mp3CategorizationServer {
 	
-	
+	/*port megadás konstruktor kint*/
 	public Mp3CategorizationServer() {
 		Map<File, ID3Tag> mp3s = new HashMap<File, ID3Tag>();
 		try {
@@ -30,7 +30,12 @@ public class Mp3CategorizationServer {
 			OutputStream os = socket.getOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(os);
 			System.out.println("streams established");
-			
+
+			/*egy socketen barmennyi kérés fusson le, amennyit csak akar a kliens pl: több kategorizálás
+
+			 */
+
+			/*propertit hasznalni nem STRING hanem obj */
 			mp3s = (HashMap<File, ID3Tag>) ois.readObject();
 			System.out.println("file objects received");
 			Properties rawTag = (Properties) ois.readObject();

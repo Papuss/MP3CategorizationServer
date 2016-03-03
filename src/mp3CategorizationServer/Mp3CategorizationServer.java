@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import main.ID3Tag;
+
 public class Mp3CategorizationServer {
 	
 	

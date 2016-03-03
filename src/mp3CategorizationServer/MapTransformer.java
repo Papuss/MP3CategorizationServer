@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import main.ID3Tag;
+
 public class MapTransformer {
 	
 	public static Map<String, List<File>> transformMap(Map<File, ID3Tag> mp3s, String chosenTag){
@@ -44,20 +46,24 @@ public class MapTransformer {
 				dirsAndFiles.get(tagDirName).add(fileToAdd);
 		    }
 		    if (chosenTag.equals("artist")) {
-		    	String tag = entry.getValue().getArtist();
-				dirsAndFiles.get(tag).add(entry.getKey());
+		    	String tagDirName = entry.getValue().getArtist();
+		    	File fileToAdd = entry.getKey();
+				dirsAndFiles.get(tagDirName).add(fileToAdd);
 		    }
 		    if (chosenTag.equals("album")) {
-		    	String tag = entry.getValue().getAlbum();
-				dirsAndFiles.get(tag).add(entry.getKey());
+		    	String tagDirName = entry.getValue().getAlbum();
+		    	File fileToAdd = entry.getKey();
+				dirsAndFiles.get(tagDirName).add(fileToAdd);
 		    }
 		    if (chosenTag.equals("year")) {
-		    	String tag = String.valueOf(entry.getValue().getYear());
-				dirsAndFiles.get(tag).add(entry.getKey());
+		    	String tagDirName = String.valueOf(entry.getValue().getYear());
+		    	File fileToAdd = entry.getKey();
+				dirsAndFiles.get(tagDirName).add(fileToAdd);
 		    }
 		    if (chosenTag.equals("genre")) {
-		    	String tag = GenreMapper.types.get(entry.getValue().getGenre());
-				dirsAndFiles.get(tag).add(entry.getKey());
+		    	String tagDirName = GenreMapper.types.get(entry.getValue().getGenre());
+		    	File fileToAdd = entry.getKey();
+				dirsAndFiles.get(tagDirName).add(fileToAdd);
 		    }
 		}
 		

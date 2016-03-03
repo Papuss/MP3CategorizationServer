@@ -1,4 +1,4 @@
-package mp3CategorizationServer;
+package main;
 
 import java.io.File;
 import java.io.RandomAccessFile;

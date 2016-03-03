@@ -68,19 +68,5 @@ public class MapTransformer {
 		}
 		
 		return dirsAndFiles;
-		/*
-		for (HashMap.Entry<File, ID3Tag> entry : mp3s.entrySet())
-		{
-		    if (chosenTag.equals("title")){
-		    	String property = entry.getValue().getTitle();
-		    	if (dirsAndFiles.containsKey(property)){
-		    		dirsAndFiles.get(property).add(entry.getKey());
-		    	} else {
-		    		dirsAndFiles.put(property, null);
-		    		dirsAndFiles.get(property).add(entry.getKey());
-		    	}
-		    }
-		}
-		*/
 	}
 }

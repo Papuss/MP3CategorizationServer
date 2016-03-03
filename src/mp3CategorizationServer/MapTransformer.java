@@ -33,13 +33,15 @@ public class MapTransformer {
 		}
 		
 		for (String tag : collectedTags) {
-			dirsAndFiles.put(tag, null);
+			List<File> sortedFiles = new ArrayList<>();
+			dirsAndFiles.put(tag, sortedFiles);
 		}
 		
 		for (HashMap.Entry<File, ID3Tag> entry : mp3s.entrySet()){
 			if (chosenTag.equals("title")) {
-				String tag = entry.getValue().getTitle();
-				dirsAndFiles.get(tag).add(entry.getKey());
+				String tagDirName = entry.getValue().getTitle();
+				File fileToAdd = entry.getKey();
+				dirsAndFiles.get(tagDirName).add(fileToAdd);
 		    }
 		    if (chosenTag.equals("artist")) {
 		    	String tag = entry.getValue().getArtist();

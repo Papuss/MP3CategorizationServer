@@ -1,4 +1,4 @@
-package mp3CategorizationServer;
+package main;
 
 import java.io.File;
 import java.io.InputStream;
@@ -10,9 +10,6 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import main.ID3Tag;
-import main.Properties;
 
 public class Mp3CategorizationServer {
 	
@@ -61,21 +58,6 @@ public class Mp3CategorizationServer {
 	public static void main(String[] args) {
 		
 		new Mp3CategorizationServer();
-
-//		File file1 = new File("C:\\Music\\01.mp3");
-//		File file2 = new File("C:\\Music\\02.mp3");
-//		File file3 = new File("C:\\Music\\03.mp3");
-//		File file4 = new File("C:\\Music\\04.mp3");
-//		File file5 = new File("C:\\Music\\05.mp3");
-//		
-//		Map<File, ID3Tag> mapp = new HashMap<>();
-//		mapp.put(file1, ID3Tag.parse(file1));
-//		mapp.put(file2, ID3Tag.parse(file2));
-//		mapp.put(file3, ID3Tag.parse(file3));
-//		mapp.put(file4, ID3Tag.parse(file4));
-//		mapp.put(file5, ID3Tag.parse(file5));
-//		
-//		System.out.println(MapTransformer.transformMap(mapp, "year"));
 	}
 
 }

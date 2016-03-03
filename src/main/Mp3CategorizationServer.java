@@ -13,11 +13,12 @@ import java.util.Map;
 
 public class Mp3CategorizationServer {
 	
-	/*port megadás konstruktor kint*/
+	final int PORT = 1003;
+	
 	public Mp3CategorizationServer() {
 		Map<File, ID3Tag> mp3s = new HashMap<File, ID3Tag>();
 		try {
-			ServerSocket ss = new ServerSocket(1003);
+			ServerSocket ss = new ServerSocket(PORT);
 			Socket socket = ss.accept();
 			System.out.println("client connected");
 			
@@ -31,24 +32,35 @@ public class Mp3CategorizationServer {
 			/*egy socketen barmennyi kérés fusson le, amennyit csak akar a kliens pl: több kategorizálás
 
 			 */
-
-			/*propertit hasznalni nem STRING hanem obj */
-			mp3s = (HashMap<File, ID3Tag>) ois.readObject();
-			System.out.println("file objects received");
-			Properties rawTag = (Properties) ois.readObject();
-			String chosenTag = rawTag.toString().toLowerCase();
-			System.out.println("chosen tag recieved");
-			Map<String, List<File>> dirsAndFiles = MapTransformer.transformMap(mp3s, chosenTag);
-			oos.writeObject(dirsAndFiles);
-			System.out.println("directory and files layout created and sent");
-			
-			oos.close();
-			os.close();
-			ois.close();
-			is.close();
-			socket.close();
-			ss.close();
-			System.out.println("server closed.");
+			while(true){
+				mp3s = (HashMap<File, ID3Tag>) ois.readObject();
+				System.out.println("file objects received");
+				Properties chosenTag = (Properties) ois.readObject();
+				System.out.println("chosen tag recieved");
+				Map<String, List<File>> dirsAndFiles = MapTransformer.transformMap(mp3s, chosenTag);
+				oos.writeObject(dirsAndFiles);
+				System.out.println("directory and files layout created and sent");
+				
+//				try {
+//					Object check = ois.readObject();	
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//					break;
+//				}
+				/*
+				if (ois.read() == -1){
+					break;
+				}
+				*/
+				
+			} 
+//			oos.close();
+//			os.close();
+//			ois.close();
+//			is.close();
+//			socket.close();
+//			ss.close();
+//			System.out.println("server closed.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

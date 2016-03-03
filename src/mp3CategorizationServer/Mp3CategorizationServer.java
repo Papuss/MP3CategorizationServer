@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import main.ID3Tag;
+import main.Properties;
 
 public class Mp3CategorizationServer {
 	
@@ -32,7 +33,8 @@ public class Mp3CategorizationServer {
 			
 			mp3s = (HashMap<File, ID3Tag>) ois.readObject();
 			System.out.println("file objects received");
-			String chosenTag = (String) ois.readObject();
+			Properties rawTag = (Properties) ois.readObject();
+			String chosenTag = rawTag.toString().toLowerCase();
 			System.out.println("chosen tag recieved");
 			Map<String, List<File>> dirsAndFiles = MapTransformer.transformMap(mp3s, chosenTag);
 			oos.writeObject(dirsAndFiles);
